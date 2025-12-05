@@ -1,2 +1,1 @@
-# Proyecto Reto
-# laravel
+# Proyecto Laravel
