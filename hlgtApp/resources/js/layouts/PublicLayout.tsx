@@ -12,12 +12,12 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center space-x-3">
                                 <img 
-                                    src="/images/icono4.png" 
+                                    src="/images/icono.png" 
                                     alt="Logo" 
                                     className="h-25 w-25"
                                 />
                                 <span className="text-xl font-bold text-gray-800">
-                                    MySite
+                                    HipooLOompa Green Tech
                                 </span>
                             </Link>
                         </div>
