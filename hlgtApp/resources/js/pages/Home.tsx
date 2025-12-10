@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import PublicLayout from '@/layouts/PublicLayout';
+import PublicLayout from '../layouts/PublicLayout';
 
 export default function Home() {
     return (
@@ -8,10 +8,10 @@ export default function Home() {
             <section className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                        Welcome to Japan
+                        Welcome to MySite
                     </h1>
                     <p className="text-xl md:text-2xl mb-8">
-                        Discover the beauty and culture of Japan with us.
+                        Discover everything we have to offer
                     </p>
                     <Link
                         href="/contacto"
@@ -22,15 +22,16 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Sección Galería Preview */}
+            {/* Gallery Preview Section */}
             <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                            Galery
+                            Gallery
                         </h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Explore a selection of our favorite moments and destinations in Japan.
+                            Explore our collection of featured images and projects. 
+                            Each image tells a unique story of our work.
                         </p>
                     </div>
                     
@@ -49,19 +50,19 @@ export default function Home() {
                             href="/galeria"
                             className="inline-block text-blue-600 hover:text-blue-700 font-semibold"
                         >
-                            Show all Galery →
+                            View full gallery →
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* Sección Quiénes Somos Preview */}
+            {/* About Us Preview Section */}
             <section className="py-16 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                                Who We Are?
+                                About Us
                             </h2>
                             <p className="text-gray-600 mb-6">
                                 We are a passionate team dedicated to delivering innovative solutions. 
@@ -76,21 +77,21 @@ export default function Home() {
                             </Link>
                         </div>
                         <div className="bg-gray-300 rounded-lg aspect-video flex items-center justify-center text-gray-500">
-                            Team Image
+                            Team image
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Sección Contacto Preview */}
+            {/* Contact Preview Section */}
             <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">
                         Contact Us
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-                        Do you have any questions or projects in mind? We are here to help. 
-                        Feel free to get in touch with us.
+                        Have a question or project in mind? We're here to help. 
+                        Don't hesitate to get in touch with us.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <div className="bg-gray-50 p-6 rounded-lg">
@@ -100,7 +101,7 @@ export default function Home() {
                                 </svg>
                             </div>
                             <p className="font-semibold">Email</p>
-                            <p className="text-gray-600 text-sm">info@misitio.com</p>
+                            <p className="text-gray-600 text-sm">info@mysite.com</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-lg">
                             <div className="text-blue-600 mb-2">
@@ -108,7 +109,7 @@ export default function Home() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                             </div>
-                            <p className="font-semibold">Teléfono</p>
+                            <p className="font-semibold">Phone</p>
                             <p className="text-gray-600 text-sm">+34 123 456 789</p>
                         </div>
                     </div>
