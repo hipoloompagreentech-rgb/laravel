@@ -14,7 +14,7 @@ export default function Home() {
                         Sustainable Cloud Solutions for Modern Organizations
                     </p>
                     <Link
-                        href="/contacto"
+                        href="/about"
                         className="inline-block bg-white text-teal-700 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors shadow-lg"
                     >
                         Contact Us
@@ -53,7 +53,7 @@ export default function Home() {
 
                     <div className="text-center">
                         <Link
-                            href="/galeria"
+                            href="/galery"
                             className="inline-block text-teal-600 hover:text-teal-700 font-semibold"
                         >
                             View full gallery →
