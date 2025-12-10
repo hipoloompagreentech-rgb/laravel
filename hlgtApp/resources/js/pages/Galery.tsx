@@ -7,14 +7,14 @@ export default function Galery() {
 
     const images = [
         { id: 1, src: '/images/greendata.png', title: 'Green Data Centers', description: 'Sustainable infrastructure solutions' },
-        { id: 2, src: '/images/class.png', title: 'Cloud iClass', description: 'Modern cloud architecture' },
-        { id: 3, src: '/images/greeCloud.jpeg', title: 'Green Cloud', description: 'Eco-friendly cloud services' },
-        { id: 4, src: '/images/Team.png', title: 'Our Team', description: 'Expert cloud professionals' },
-        { id: 5, src: '/images/Cutting-edge technology.jpeg', title: 'Innovation', description: 'Cutting-edge technology' },
+        { id: 2, src: '/images/Green technology commitment.png', title: 'Sustainability', description: 'Green technology commitment'},
+        { id: 3, src: '/images/Office.jpg', title: 'Green Cloud', description: 'Eco-friendly cloud services' },
+        { id: 4, src: '/images/Cutting-edge technology.jpeg', title: 'Innovation', description: 'Cutting-edge technology' },
+        { id: 5, src: '/images/Team.png', title: 'Our Team', description: 'Expert cloud professionals' },
         { id: 6, src: '/images/Enterprise-grade protection.jpg', title: 'Security', description: 'Enterprise-grade protection' },
         { id: 7, src: '/images/Data-driven insights.jpeg', title: 'Analytics', description: 'Data-driven insights' },
         { id: 8, src: '/images/Scalable solutions.webp', title: 'Infrastructure', description: 'Scalable solutions' },
-        { id: 9, src: '/images/Green technology commitment.png', title: 'Sustainability', description: 'Green technology commitment' }
+        { id: 9, src: '/images/class.png', title: 'Cloud iClass', description: 'Modern cloud architecture' }
     ];
 
     const openLightbox = (index) => {

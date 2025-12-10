@@ -38,7 +38,7 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         {[
                             { id: 1, src: '/images/greendata.png', alt: 'Green Data' },
-                            { id: 2, src: '/images/class.png', alt: 'Cloud iClass' },
+                            { id: 2, src: '/images/Cutting-edge technology.jpeg' },
                             { id: 3, src: '/images/greeCloud.jpeg', alt: 'Green Cloud' }
                         ].map((image) => (
                             <div key={image.id} className="aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
