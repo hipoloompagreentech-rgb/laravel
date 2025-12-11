@@ -32,3 +32,9 @@ Route::get('/termsandconditions', function () {
 Route::get('/privacypolicy', function () {
     return Inertia::render('privacypolicy');
 })->name('privacy');
+
+
+//profiles Route
+Route::get ('/profile', function () {
+    return Inertia::render('profile');
+})->name('profile');
