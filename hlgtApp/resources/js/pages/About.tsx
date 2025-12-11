@@ -171,7 +171,7 @@ export default function About() {
                         Let's discuss how we can help your organization modernize sustainably.
                     </p>
                     <Link
-                        href="/contacto"
+                        href="/Contact"
                         className="inline-block bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-teal-700 hover:to-emerald-700 transition-all shadow-lg"
                     >
                         Get in Touch

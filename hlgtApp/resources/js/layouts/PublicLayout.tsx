@@ -2,7 +2,7 @@ import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren } from 'react';
 
 export default function PublicLayout({ children }: PropsWithChildren) {
-    const { url } = usePage(); // ← Obtiene la ruta actual
+    const { url } = usePage();
 
     const isActive = (path: string) => url === path;
 

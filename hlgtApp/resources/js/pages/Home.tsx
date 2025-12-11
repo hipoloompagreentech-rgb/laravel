@@ -8,7 +8,7 @@ export default function Home() {
             <section className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                        HipooLOompa Green Tech
+                        HipooLoompa Green Tech
                     </h1>
                     <p className="text-xl md:text-2xl mb-8 text-emerald-50">
                         Sustainable Cloud Solutions for Modern Organizations
@@ -99,9 +99,10 @@ export default function Home() {
                     Contact Us
                 </h2>
                 <p className="text-slate-600 max-w-2xl mx-auto mb-8">
-                    Have a question or project in mind? We're here to help.
-                    Don't hesitate to get in touch with us.
+                Have a question or project in mind? We're here to help.<br />
+                Don't hesitate to get in touch with us.
                 </p>
+
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-center">
                     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-emerald-100 flex flex-col items-center h-full">
                         <div className="text-teal-600 mb-2">
@@ -129,7 +130,10 @@ export default function Home() {
                             </svg>
                         </div>
                         <p className="font-semibold text-slate-800 mb-2">Address</p>
-                        <p className="text-slate-600 text-sm">42 Pure Imagination Boulevard, Wonkaville, Factory Land</p>
+                            <p className="text-stone-600">42 Pure Imagination Boulevard, <br />
+                            Wonkaville, <br />
+                            Factory Land
+                            </p>
                     </div>
                 </div>
                 <div className="mt-8">

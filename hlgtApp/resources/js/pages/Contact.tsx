@@ -31,7 +31,8 @@ export default function Contact() {
                         Contact Us
                     </h1>
                     <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
-                        Have a question or want to discuss your project? We'd love to hear from you.
+                        Have a question or want to discuss your project? <br />
+                        We'd love to hear from you.
                     </p>      
                     <Link
                         href="/"
@@ -218,7 +219,10 @@ export default function Contact() {
                                 </svg>
                             </div>
                             <h3 className="font-bold text-slate-800 mb-2">Address</h3>
-                            <p className="text-stone-600">42 Pure Imagination Boulevard, Wonkaville, Factory Land</p>
+                            <p className="text-stone-600">42 Pure Imagination Boulevard, <br />
+                            Wonkaville, <br />
+                            Factory Land
+                            </p>
                         </div>
                     </div>
                 </div>
