@@ -211,7 +211,7 @@ export default function Contact() {
                                 </svg>
                             </div>
                             <h3 className="font-bold text-slate-800 mb-2">Address</h3>
-                            <p className="text-stone-600">Madrid, Spain</p>
+                            <p className="text-stone-600">42 Pure Imagination Boulevard, Wonkaville, Factory Land</p>
                         </div>
                     </div>
                 </div>

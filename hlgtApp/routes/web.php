@@ -3,30 +3,32 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-// Ruta Home
+// Route Home
 Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
-// Ruta Galery
+// Route Galery
 Route::get('/galery', function () {
     return Inertia::render('Galery');
 })->name('galery');
 
-// Ruta Who We Are
+// Route Who We Are
 Route::get('/about', function () {
     return Inertia::render('About');
 })->name('about');
 
-// Ruta Contact
+// Route Contact
 Route::get('/Contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
 
+// Route Terms
 Route::get('/termsandconditions', function () {
     return Inertia::render('termsandconditions');
 })->name('terms');
 
+// Route Policy
 Route::get('/privacy-policy', function () {
     return Inertia::render('PrivacyPolicy');
 })->name('privacy');

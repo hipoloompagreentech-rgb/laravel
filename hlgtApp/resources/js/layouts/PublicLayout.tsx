@@ -85,7 +85,7 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                             Privacy Policy
                         </Link>
                         <Link 
-                            href="/terms-and-conditions" 
+                            href="/termsandconditions" 
                             className="text-sm text-stone-300 hover:text-teal-400 transition-colors"
                         >
                             Terms and Conditions
