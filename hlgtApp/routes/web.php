@@ -19,6 +19,10 @@ Route::get('/about', function () {
 })->name('about');
 
 // Ruta Contact
-Route::get('/contact', function () {
+Route::get('/Contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
+
+Route::get('/termsandconditions', function () {
+    return Inertia::render('termsandconditions');
+})->name('terms');

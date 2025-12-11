@@ -223,7 +223,7 @@ about.form = aboutForm
 
 /**
 * @see routes/web.php:22
-* @route '/contact'
+* @route '/Contact'
 */
 export const contact = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: contact.url(options),
@@ -232,12 +232,12 @@ export const contact = (options?: RouteQueryOptions): RouteDefinition<'get'> => 
 
 contact.definition = {
     methods: ["get","head"],
-    url: '/contact',
+    url: '/Contact',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see routes/web.php:22
-* @route '/contact'
+* @route '/Contact'
 */
 contact.url = (options?: RouteQueryOptions) => {
     return contact.definition.url + queryParams(options)
@@ -245,7 +245,7 @@ contact.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see routes/web.php:22
-* @route '/contact'
+* @route '/Contact'
 */
 contact.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: contact.url(options),
@@ -254,7 +254,7 @@ contact.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see routes/web.php:22
-* @route '/contact'
+* @route '/Contact'
 */
 contact.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: contact.url(options),
@@ -263,7 +263,7 @@ contact.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see routes/web.php:22
-* @route '/contact'
+* @route '/Contact'
 */
 const contactForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: contact.url(options),
@@ -272,7 +272,7 @@ const contactForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see routes/web.php:22
-* @route '/contact'
+* @route '/Contact'
 */
 contactForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: contact.url(options),
@@ -281,7 +281,7 @@ contactForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see routes/web.php:22
-* @route '/contact'
+* @route '/Contact'
 */
 contactForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: contact.url({
@@ -294,3 +294,77 @@ contactForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 })
 
 contact.form = contactForm
+
+/**
+* @see routes/web.php:26
+* @route '/termsandconditions'
+*/
+export const terms = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: terms.url(options),
+    method: 'get',
+})
+
+terms.definition = {
+    methods: ["get","head"],
+    url: '/termsandconditions',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:26
+* @route '/termsandconditions'
+*/
+terms.url = (options?: RouteQueryOptions) => {
+    return terms.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:26
+* @route '/termsandconditions'
+*/
+terms.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: terms.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:26
+* @route '/termsandconditions'
+*/
+terms.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: terms.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:26
+* @route '/termsandconditions'
+*/
+const termsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: terms.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:26
+* @route '/termsandconditions'
+*/
+termsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: terms.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:26
+* @route '/termsandconditions'
+*/
+termsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: terms.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+terms.form = termsForm
