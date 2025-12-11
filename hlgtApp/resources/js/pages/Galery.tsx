@@ -47,10 +47,10 @@ export default function Galery() {
                         Explore our sustainable cloud solutions and projects
                     </p>
                     <Link
-                        href="/"
+                        href="/Contact"
                         className="inline-block bg-white text-teal-700 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors shadow-lg"
                     >
-                        Back to Home
+                        Contact Us
                     </Link>
                 </div>
             </section>

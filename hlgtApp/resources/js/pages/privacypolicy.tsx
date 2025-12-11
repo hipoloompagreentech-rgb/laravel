@@ -1,4 +1,5 @@
 import PublicLayout from '@/layouts/PublicLayout';
+import { Link } from '@inertiajs/react';
 
 export default function PrivacyPolicy() {
     return (
@@ -12,6 +13,12 @@ export default function PrivacyPolicy() {
                     <p className="text-xl text-emerald-50">
                         How we protect and manage your personal information
                     </p>
+                    <Link
+                        href="/"
+                        className="inline-block bg-white text-teal-700 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors shadow-lg"
+                    >
+                        Home
+                    </Link>
                 </div>
             </section>
 
@@ -178,8 +185,8 @@ export default function PrivacyPolicy() {
                             </p>
                             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-lg border border-teal-200">
                                 <p className="font-bold text-slate-800 mb-2">HipooLoompa Green Tech</p>
-                                <p className="text-stone-700 text-sm mb-1">Joe Doe Street, 123</p>
-                                <p className="text-stone-700 text-sm mb-1">28013 Madrid, Spain</p>
+                                <p className="text-stone-700 text-sm mb-1">42 Pure Imagination Boulevard</p>
+                                <p className="text-stone-700 text-sm mb-1">Wonkaville, Factory Land</p>
                                 <p className="text-stone-700 text-sm mt-3">
                                     Email:{' '}
                                     <a href="mailto:privacy@hipooloompa.com" className="text-teal-600 hover:text-teal-700 underline font-semibold">

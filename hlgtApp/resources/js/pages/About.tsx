@@ -7,14 +7,20 @@ export default function About() {
             {/* Hero Section */}
             <section className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4">
                         Who We Are
                     </h1>
-                    <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
-                        Pioneering sustainable cloud solutions for organizations that care about technology and the planet
+                    <p className="text-xl md:text-2xl mb-8 text-emerald-50">
+                        Pioneering sustainable cloud solutions for organizations that care the planet
                     </p>
+                    <Link
+                        href="/Contact"
+                        className="inline-block bg-white text-teal-700 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors shadow-lg"
+                    >
+                        Contact Us
+                    </Link>
                 </div>
-            </section>
+            </section>           
 
             {/* Mission Section */}
             <section className="py-16 bg-stone-100">
@@ -113,11 +119,11 @@ export default function About() {
                     </p>
                    <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
     {[
-        { id: 1, name: 'John Smith', position: 'CEO & Founder', image: '/images/profile/Aitor.png' },
-        { id: 2, name: 'Sarah Johnson', position: 'CTO', image: '/images/profile/Alba.png' },
-        { id: 3, name: 'Michael Chen', position: 'Cloud Architect', image: '/images/profile/Iker.png' },
-        { id: 4, name: 'Emma Davis', position: 'Sustainability Lead', image: '/images/profile/Jonathan.png' },
-        { id: 5, name: 'David Martinez', position: 'DevOps Engineer', image: '/images/profile/Unai.png' }
+        { id: 1, name: 'Aitor Martinez', position: 'CEO & Founder', image: '/images/profile/Aitor.png' },
+        { id: 2, name: 'Alba Lozano', position: 'CTO', image: '/images/profile/Alba.png' },
+        { id: 3, name: 'Iker Fuentes', position: 'Cloud Architect', image: '/images/profile/Iker.png' },
+        { id: 4, name: 'Jonathan Angulo', position: 'Sustainability Lead', image: '/images/profile/Jonathan.png' },
+        { id: 5, name: 'Unai Sarria', position: 'DevOps Engineer', image: '/images/profile/Unai.png' }
     ].map((member) => (
         <div key={member.id} className="text-center">
             <div className="w-32 h-32 mx-auto rounded-full mb-4 overflow-hidden shadow-md">

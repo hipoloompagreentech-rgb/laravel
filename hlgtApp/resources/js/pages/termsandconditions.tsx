@@ -1,4 +1,5 @@
 import PublicLayout from '@/layouts/PublicLayout';
+import { Link } from '@inertiajs/react';
 
 export default function TermsAndConditions() {
     return (
@@ -12,6 +13,12 @@ export default function TermsAndConditions() {
                     <p className="text-xl text-emerald-50">
                         Contact Form Usage Terms
                     </p>
+                    <Link
+                        href="/"
+                        className="inline-block bg-white text-teal-700 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors shadow-lg"
+                    >
+                        Home
+                    </Link>
                 </div>
             </section>
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from '@inertiajs/react';
 import PublicLayout from '@/layouts/PublicLayout';
+import { Link } from '@inertiajs/react';
 
 export default function Contact() {
     const { data, setData, post, processing, errors } = useForm({
@@ -31,7 +32,13 @@ export default function Contact() {
                     </h1>
                     <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
                         Have a question or want to discuss your project? We'd love to hear from you.
-                    </p>
+                    </p>      
+                    <Link
+                        href="/"
+                        className="inline-block bg-white text-teal-700 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors shadow-lg"
+                    >
+                        Home
+                    </Link>              
                 </div>
             </section>
 

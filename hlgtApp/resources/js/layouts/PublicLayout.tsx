@@ -1,13 +1,27 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren } from 'react';
 
 export default function PublicLayout({ children }: PropsWithChildren) {
+    const { url } = usePage(); // ← Obtiene la ruta actual
+
+    const isActive = (path: string) => url === path;
+
+    const baseClasses =
+        "px-3 py-2 text-sm font-medium transition-colors";
+    
+    const inactiveClasses =
+        "text-gray-700 hover:text-blue-600";
+    
+    const activeClasses =
+        "text-blue-600 font-bold border-b-2 border-blue-600";
+
     return (
         <div className="min-h-screen flex flex-col bg-gray-50">
             {/* Navigation */}
             <nav className="bg-white shadow-md sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
+
                         {/* Logo */}
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center space-x-3">
@@ -26,25 +40,40 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                         <div className="hidden md:flex space-x-8">
                             <Link
                                 href="/"
-                                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                                className={`
+                                    ${baseClasses}
+                                    ${isActive('/') ? activeClasses : inactiveClasses}
+                                `}
                             >
                                 Home
                             </Link>
+
                             <Link
                                 href="/galery"
-                                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                                className={`
+                                    ${baseClasses}
+                                    ${isActive('/galery') ? activeClasses : inactiveClasses}
+                                `}
                             >
                                 Gallery
                             </Link>
+
                             <Link
                                 href="/about"
-                                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                                className={`
+                                    ${baseClasses}
+                                    ${isActive('/about') ? activeClasses : inactiveClasses}
+                                `}
                             >
                                 About Us
                             </Link>
+
                             <Link
                                 href="/Contact"
-                                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                                className={`
+                                    ${baseClasses}
+                                    ${isActive('/Contact') ? activeClasses : inactiveClasses}
+                                `}
                             >
                                 Contact
                             </Link>
@@ -67,33 +96,31 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                 {children}
             </main>
 
-        {/* Footer */}
-        <footer className="fixed bottom-0 left-0 right-0 bg-slate-800 text-white shadow-lg z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    {/* Copyright */}
-                    <p className="text-sm text-stone-300">
-                        © 2024 HipooLoompa Green Tech. All rights reserved.
-                    </p>
-                    
-                    {/* Legal Links */}
-                    <div className="flex space-x-6">
-                        <Link 
-                            href="/privacypolicy"
-                            className="text-sm text-stone-300 hover:text-teal-400 transition-colors"
-                        >
-                            Privacy Policy
-                        </Link>
-                        <Link 
-                            href="/termsandconditions" 
-                            className="text-sm text-stone-300 hover:text-teal-400 transition-colors"
-                        >
-                            Terms and Conditions
-                        </Link>
+            {/* Footer */}
+            <footer className="fixed bottom-0 left-0 right-0 bg-slate-800 text-white shadow-lg z-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <p className="text-sm text-stone-300">
+                            © 2024 HipooLoompa Green Tech. All rights reserved.
+                        </p>
+
+                        <div className="flex space-x-6">
+                            <Link 
+                                href="/privacypolicy"
+                                className="text-sm text-stone-300 hover:text-teal-400 transition-colors"
+                            >
+                                Privacy Policy
+                            </Link>
+                            <Link 
+                                href="/termsandconditions" 
+                                className="text-sm text-stone-300 hover:text-teal-400 transition-colors"
+                            >
+                                Terms and Conditions
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         </div>
     );
 }
