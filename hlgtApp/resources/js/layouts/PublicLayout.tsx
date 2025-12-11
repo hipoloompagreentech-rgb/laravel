@@ -79,7 +79,7 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                     {/* Legal Links */}
                     <div className="flex space-x-6">
                         <Link 
-                            href="/privacy-policy" 
+                            href="/privacypolicy"
                             className="text-sm text-stone-300 hover:text-teal-400 transition-colors"
                         >
                             Privacy Policy

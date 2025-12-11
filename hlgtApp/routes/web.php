@@ -29,6 +29,6 @@ Route::get('/termsandconditions', function () {
 })->name('terms');
 
 // Route Policy
-Route::get('/privacy-policy', function () {
-    return Inertia::render('PrivacyPolicy');
+Route::get('/privacypolicy', function () {
+    return Inertia::render('privacypolicy');
 })->name('privacy');

@@ -371,7 +371,7 @@ terms.form = termsForm
 
 /**
 * @see routes/web.php:32
-* @route '/privacy-policy'
+* @route '/privacypolicy'
 */
 export const privacy = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: privacy.url(options),
@@ -380,12 +380,12 @@ export const privacy = (options?: RouteQueryOptions): RouteDefinition<'get'> => 
 
 privacy.definition = {
     methods: ["get","head"],
-    url: '/privacy-policy',
+    url: '/privacypolicy',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see routes/web.php:32
-* @route '/privacy-policy'
+* @route '/privacypolicy'
 */
 privacy.url = (options?: RouteQueryOptions) => {
     return privacy.definition.url + queryParams(options)
@@ -393,7 +393,7 @@ privacy.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see routes/web.php:32
-* @route '/privacy-policy'
+* @route '/privacypolicy'
 */
 privacy.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: privacy.url(options),
@@ -402,7 +402,7 @@ privacy.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see routes/web.php:32
-* @route '/privacy-policy'
+* @route '/privacypolicy'
 */
 privacy.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: privacy.url(options),
@@ -411,7 +411,7 @@ privacy.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see routes/web.php:32
-* @route '/privacy-policy'
+* @route '/privacypolicy'
 */
 const privacyForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: privacy.url(options),
@@ -420,7 +420,7 @@ const privacyForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see routes/web.php:32
-* @route '/privacy-policy'
+* @route '/privacypolicy'
 */
 privacyForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: privacy.url(options),
@@ -429,7 +429,7 @@ privacyForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see routes/web.php:32
-* @route '/privacy-policy'
+* @route '/privacypolicy'
 */
 privacyForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: privacy.url({
