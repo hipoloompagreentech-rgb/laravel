@@ -368,3 +368,77 @@ termsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 terms.form = termsForm
+
+/**
+* @see routes/web.php:30
+* @route '/privacy-policy'
+*/
+export const privacy = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: privacy.url(options),
+    method: 'get',
+})
+
+privacy.definition = {
+    methods: ["get","head"],
+    url: '/privacy-policy',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:30
+* @route '/privacy-policy'
+*/
+privacy.url = (options?: RouteQueryOptions) => {
+    return privacy.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:30
+* @route '/privacy-policy'
+*/
+privacy.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: privacy.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:30
+* @route '/privacy-policy'
+*/
+privacy.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: privacy.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:30
+* @route '/privacy-policy'
+*/
+const privacyForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: privacy.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:30
+* @route '/privacy-policy'
+*/
+privacyForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: privacy.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:30
+* @route '/privacy-policy'
+*/
+privacyForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: privacy.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+privacy.form = privacyForm

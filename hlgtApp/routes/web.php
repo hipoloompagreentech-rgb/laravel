@@ -26,3 +26,7 @@ Route::get('/Contact', function () {
 Route::get('/termsandconditions', function () {
     return Inertia::render('termsandconditions');
 })->name('terms');
+
+Route::get('/privacy-policy', function () {
+    return Inertia::render('PrivacyPolicy');
+})->name('privacy');
