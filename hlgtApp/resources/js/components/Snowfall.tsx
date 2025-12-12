@@ -32,10 +32,11 @@ export default function Snowfall({
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const canvas = canvasRef.current;
-    const pileEl = pileRef.current;
+    const pileEl = pileRef.current as HTMLCanvasElement | null;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const canvasEl = canvas as HTMLCanvasElement;
+    const ctx = canvasEl.getContext('2d') as CanvasRenderingContext2D;
+
 
     const dpr = Math.max(1, window.devicePixelRatio || 1);
     let width = window.innerWidth;
@@ -46,10 +47,10 @@ export default function Snowfall({
     function setCanvasSize() {
       width = window.innerWidth;
       height = window.innerHeight;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
+      canvasEl.style.width = `${width}px`;
+      canvasEl.style.height = `${height}px`;
+      canvasEl.width = Math.floor(width * dpr);
+      canvasEl.height = Math.floor(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       if (pileEl) {

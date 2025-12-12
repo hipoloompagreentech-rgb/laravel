@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { router } from '@inertiajs/react';
 import AuthLayout from '../layouts/AuthLayout';
+import PublicLayout from '../layouts/PublicLayout';
 import authService from '../lib/authService';
 
 export default function Register() {
@@ -30,8 +31,9 @@ export default function Register() {
   };
 
   return (
-    <AuthLayout title="Crear Cuenta" subtitle="Únete a nosotros hoy">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <PublicLayout>
+      <AuthLayout title="Crear Cuenta" subtitle="Únete a nosotros hoy">
+        <form onSubmit={handleSubmit} className="space-y-6">
         {error && (
           <div className="rounded-lg bg-red-500/10 p-4 text-sm text-red-400 border border-red-500/20">{error}</div>
         )}
@@ -58,6 +60,7 @@ export default function Register() {
 
         <button type="submit" disabled={loading} className="w-full rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:opacity-50">{loading ? 'Creando cuenta...' : 'Crear Cuenta'}</button>
       </form>
-    </AuthLayout>
+      </AuthLayout>
+    </PublicLayout>
   );
 }
