@@ -37,7 +37,7 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                                     className="h-25 w-25"
                                 />
                                 <span className="text-xl font-bold text-gray-800">
-                                    HipooLOompa Green Tech
+                                    HipooLoompa Green Tech
                                 </span>
                             </Link>
                         </div>
