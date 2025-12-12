@@ -1,66 +1,125 @@
 import React, { useState } from 'react';
 import { router } from '@inertiajs/react';
-import AuthLayout from '../layouts/AuthLayout';
 import PublicLayout from '../layouts/PublicLayout';
 import authService from '../lib/authService';
 
 export default function Register() {
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+    const [displayName, setDisplayName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-    if (password !== confirmPassword) {
-      setError('Las contraseñas no coinciden');
-      return;
-    }
-    setLoading(true);
-    try {
-      await authService.register(email, password, displayName);
-      router.visit('/');
-    } catch (err: any) {
-      setError(err?.message || 'Error al crear cuenta');
-    } finally {
-      setLoading(false);
-    }
-  };
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setError('');
 
-  return (
-    <PublicLayout>
-      <AuthLayout title="Crear Cuenta" subtitle="Únete a nosotros hoy">
-        <form onSubmit={handleSubmit} className="space-y-6">
-        {error && (
-          <div className="rounded-lg bg-red-500/10 p-4 text-sm text-red-400 border border-red-500/20">{error}</div>
-        )}
+        if (password !== confirmPassword) {
+            setError('Passwords do not match');
+            return;
+        }
 
-        <div>
-          <label className="block text-sm font-medium text-slate-300">Nombre</label>
-          <input value={displayName} onChange={(e) => setDisplayName(e.target.value)} type="text" required className="mt-2 w-full rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-white" />
-        </div>
+        setLoading(true);
 
-        <div>
-          <label className="block text-sm font-medium text-slate-300">Email</label>
-          <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" required className="mt-2 w-full rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-white" />
-        </div>
+        try {
+            await authService.register(email, password, displayName);
+            router.visit('/');
+        } catch (err: any) {
+            setError(err?.message || 'Error creating account');
+        } finally {
+            setLoading(false);
+        }
+    };
 
-        <div>
-          <label className="block text-sm font-medium text-slate-300">Contraseña</label>
-          <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required className="mt-2 w-full rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-white" />
-        </div>
+    return (
+        <PublicLayout>
+            <section className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 h-screen flex items-start overflow-hidden pt-20">
+                <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div className="bg-white rounded-lg shadow-lg p-8">
+                        <div className="text-center mb-8">
+                            <h2 className="text-3xl font-bold text-slate-800 mb-2">
+                                Create Account
+                            </h2>
+                            <p className="text-slate-600">
+                                Join us today
+                            </p>
+                        </div>
+                        
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            {error && (
+                                <div className="rounded-lg bg-red-50 p-4 text-sm text-red-700 border border-red-200">
+                                    {error}
+                                </div>
+                            )}
 
-        <div>
-          <label className="block text-sm font-medium text-slate-300">Confirmar Contraseña</label>
-          <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" required className="mt-2 w-full rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-white" />
-        </div>
+                            <div>
+                                <label className="block text-sm font-medium text-slate-800">
+                                    Name
+                                </label>
+                                <input
+                                    value={displayName}
+                                    onChange={(e) => setDisplayName(e.target.value)}
+                                    type="text"
+                                    required
+                                    className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-800 placeholder-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-colors"
+                                    placeholder="Your name"
+                                />
+                            </div>
 
-        <button type="submit" disabled={loading} className="w-full rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:opacity-50">{loading ? 'Creando cuenta...' : 'Crear Cuenta'}</button>
-      </form>
-      </AuthLayout>
-    </PublicLayout>
-  );
+                            <div>
+                                <label className="block text-sm font-medium text-slate-800">
+                                    Email
+                                </label>
+                                <input
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    type="email"
+                                    required
+                                    className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-800 placeholder-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-colors"
+                                    placeholder="your@email.com"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-slate-800">
+                                    Password
+                                </label>
+                                <input
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    type="password"
+                                    required
+                                    className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-800 placeholder-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-colors"
+                                    placeholder="••••••••"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-slate-800">
+                                    Confirm Password
+                                </label>
+                                <input
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    type="password"
+                                    required
+                                    className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-800 placeholder-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-colors"
+                                    placeholder="••••••••"
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="w-full rounded-lg bg-gradient-to-r from-teal-600 to-emerald-600 px-4 py-3 font-semibold text-white hover:from-teal-700 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+                            >
+                                {loading ? 'Creating account...' : 'Create Account'}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </PublicLayout>
+    );
 }

@@ -26,9 +26,9 @@ export default function Login() {
 
     return (
         <PublicLayout>
-            <section className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 py-16 min-h-screen flex items-center">
-                <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="bg-white rounded-lg shadow-lg p-10">
+            <section className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 h-screen flex items-start overflow-hidden pt-20">
+                <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div className="bg-white rounded-lg shadow-lg p-8">
                         <div className="text-center mb-8">
                             <h2 className="text-3xl font-bold text-slate-800 mb-2">
                                 Sign In
