@@ -74,15 +74,17 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                                 About Us
                             </Link>
 
-                              <Link
-                                href="/profile"
-                                className={`
-                                    ${baseClasses}
-                                    ${isActive('/profile') ? activeClasses : inactiveClasses}
-                                `}
-                            >
-                                Profiles                                
-                            </Link>
+                            {user && (
+                                <Link
+                                    href="/profile"
+                                    className={`
+                                        ${baseClasses}
+                                        ${isActive('/profile') ? activeClasses : inactiveClasses}
+                                    `}
+                                >
+                                    Profiles                                
+                                </Link>
+                            )}
 
                             <Link
                                 href="/Contact"

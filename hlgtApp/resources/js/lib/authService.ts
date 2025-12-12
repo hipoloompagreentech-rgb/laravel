@@ -4,6 +4,8 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  updateEmail,
+  updatePassword,
   type User as FirebaseUser,
 } from 'firebase/auth';
 import { ref, set, get } from 'firebase/database';
@@ -52,6 +54,57 @@ class AuthService {
 
   async logout(): Promise<void> {
     await signOut(auth);
+  }
+
+  async updateDisplayName(newDisplayName: string): Promise<UserProfile> {
+    const user = auth.currentUser;
+    if (!user) throw new Error('No authenticated user');
+    await updateProfile(user as FirebaseUser, { displayName: newDisplayName });
+    // update DB record as well
+    const snap = await get(ref(db, `users/${user.uid}`));
+    const profile: UserProfile = snap.exists()
+      ? { ...snap.val(), displayName: newDisplayName }
+      : {
+          uid: user.uid,
+          email: user.email || '',
+          displayName: newDisplayName,
+          createdAt: new Date().toISOString(),
+        };
+    await set(ref(db, `users/${user.uid}`), profile);
+    return profile;
+  }
+
+  async updateEmail(newEmail: string): Promise<UserProfile> {
+    const user = auth.currentUser;
+    if (!user) throw new Error('No authenticated user');
+    try {
+      await updateEmail(user as FirebaseUser, newEmail);
+    } catch (err) {
+      console.error('[authService] updateEmail error', err);
+      throw err;
+    }
+    const snap = await get(ref(db, `users/${user.uid}`));
+    const profile: UserProfile = snap.exists()
+      ? { ...snap.val(), email: newEmail }
+      : {
+          uid: user.uid,
+          email: newEmail,
+          displayName: user.displayName || '',
+          createdAt: new Date().toISOString(),
+        };
+    await set(ref(db, `users/${user.uid}`), profile);
+    return profile;
+  }
+
+  async updatePassword(newPassword: string): Promise<void> {
+    const user = auth.currentUser;
+    if (!user) throw new Error('No authenticated user');
+    try {
+      await updatePassword(user as FirebaseUser, newPassword);
+    } catch (err) {
+      console.error('[authService] updatePassword error', err);
+      throw err;
+    }
   }
 
   onAuthChange(callback: (user: UserProfile | null) => void) {
