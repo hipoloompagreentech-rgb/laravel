@@ -12,13 +12,14 @@ export default function PublicLayout({ children }: PropsWithChildren) {
         "px-3 py-2 text-sm font-medium transition-colors";
     
     const inactiveClasses =
-        "text-gray-700 hover:text-blue-600";
+        "text-gray-700 hover:text-teal-600";
     
     const activeClasses =
-        "text-blue-600 font-bold border-b-2 border-blue-600";
+        "text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-700 font-bold border-b-2 border-teal-600";
 
     const { user, loading, logout } = useAuth();
     const enableSnow = import.meta.env.VITE_ENABLE_SNOW === 'true';
+    
     return (
         <div className="min-h-screen flex flex-col bg-gray-50 relative">
             {enableSnow && <Snowfall count={80} color={'255,255,255'} speed={1} />}
@@ -96,21 +97,21 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                             {/* Auth buttons */}
                             {!loading && !user && (
                                 <>
-                                    <Link href="/login" className={`${baseClasses} text-gray-700 hover:text-blue-600`}>Login</Link>
-                                    <Link href="/register" className={`${baseClasses} text-white bg-blue-600 px-3 py-2 rounded-md hover:bg-blue-700`}>Register</Link>
+                                    <Link href="/login" className={`${baseClasses} text-gray-700 hover:text-teal-600`}>Login</Link>
+                                    <Link href="/register" className={`${baseClasses} text-white bg-gradient-to-r from-teal-600 to-emerald-600 px-3 py-2 rounded-md hover:from-teal-700 hover:to-emerald-700 transition-all`}>Register</Link>
                                 </>
                             )}
                             {!loading && user && (
                                 <>
-                                    <Link href="/profile" className={`${baseClasses} text-gray-700 hover:text-blue-600`}>{user.displayName || user.email}</Link>
-                                    <button onClick={async () => { await logout(); router.visit('/'); }} className={`${baseClasses} text-sm text-red-600`}>Logout</button>
+                                    <Link href="/profile" className={`${baseClasses} text-gray-700 hover:text-teal-600`}>{user.displayName || user.email}</Link>
+                                    <button onClick={async () => { await logout(); router.visit('/'); }} className={`${baseClasses} text-sm text-red-600 hover:text-red-700`}>Logout</button>
                                 </>
                             )}
                         </div>
 
                         {/* Mobile menu (hamburger) */}
                         <div className="md:hidden">
-                            <button className="text-gray-700 hover:text-blue-600">
+                            <button className="text-gray-700 hover:text-teal-600">
                                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
