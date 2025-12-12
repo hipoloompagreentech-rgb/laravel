@@ -20,7 +20,7 @@ export default function About() {
                         Contact Us
                     </Link>
                 </div>
-            </section>           
+            </section>
 
             {/* Mission Section */}
             <section className="py-16 bg-stone-100">
