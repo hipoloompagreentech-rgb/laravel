@@ -23,6 +23,15 @@ Route::get('/Contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
 
+// Authentication: Login / Register
+Route::get('/login', function () {
+    return Inertia::render('Login');
+})->name('login');
+
+Route::get('/register', function () {
+    return Inertia::render('Register');
+})->name('register');
+
 // Route Terms
 Route::get('/termsandconditions', function () {
     return Inertia::render('termsandconditions');

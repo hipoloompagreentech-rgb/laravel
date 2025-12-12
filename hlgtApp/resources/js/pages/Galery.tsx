@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 import PublicLayout from '@/layouts/PublicLayout';
 
 export default function Galery() {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
     const images = [
         { id: 1, src: '/images/greendata.png', title: 'Green Data Centers', description: 'Sustainable infrastructure solutions' },
@@ -17,7 +17,7 @@ export default function Galery() {
         { id: 9, src: '/images/class.png', title: 'Cloud iClass', description: 'Modern cloud architecture' }
     ];
 
-    const openLightbox = (index) => {
+    const openLightbox = (index: number) => {
         setSelectedImage(index);
     };
 
@@ -25,14 +25,20 @@ export default function Galery() {
         setSelectedImage(null);
     };
 
-    const goToPrevious = (e) => {
+    const goToPrevious = (e: React.MouseEvent) => {
         e.stopPropagation();
-        setSelectedImage((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+        setSelectedImage((prev) => {
+            if (prev === null) return 0;
+            return prev > 0 ? prev - 1 : images.length - 1;
+        });
     };
 
-    const goToNext = (e) => {
+    const goToNext = (e: React.MouseEvent) => {
         e.stopPropagation();
-        setSelectedImage((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+        setSelectedImage((prev) => {
+            if (prev === null) return 0;
+            return prev < images.length - 1 ? prev + 1 : 0;
+        });
     };
 
     return (

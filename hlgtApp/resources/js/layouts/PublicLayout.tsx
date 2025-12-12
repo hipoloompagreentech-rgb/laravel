@@ -1,5 +1,7 @@
-import { Link, usePage } from '@inertiajs/react';
+import { Link, usePage, router } from '@inertiajs/react';
 import { PropsWithChildren } from 'react';
+import useAuth from '../hooks/useAuth';
+import Snowfall from '../components/Snowfall';
 
 export default function PublicLayout({ children }: PropsWithChildren) {
     const { url } = usePage();
@@ -15,8 +17,11 @@ export default function PublicLayout({ children }: PropsWithChildren) {
     const activeClasses =
         "text-blue-600 font-bold border-b-2 border-blue-600";
 
+    const { user, loading, logout } = useAuth();
+    const enableSnow = import.meta.env.VITE_ENABLE_SNOW === 'true';
     return (
-        <div className="min-h-screen flex flex-col bg-gray-50">
+        <div className="min-h-screen flex flex-col bg-gray-50 relative">
+            {enableSnow && <Snowfall count={80} color={'255,255,255'} speed={1} />}
             {/* Navigation */}
             <nav className="bg-white shadow-md sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,6 +92,20 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                             >
                                 Contact
                             </Link>
+
+                            {/* Auth buttons */}
+                            {!loading && !user && (
+                                <>
+                                    <Link href="/login" className={`${baseClasses} text-gray-700 hover:text-blue-600`}>Login</Link>
+                                    <Link href="/register" className={`${baseClasses} text-white bg-blue-600 px-3 py-2 rounded-md hover:bg-blue-700`}>Register</Link>
+                                </>
+                            )}
+                            {!loading && user && (
+                                <>
+                                    <Link href="/profile" className={`${baseClasses} text-gray-700 hover:text-blue-600`}>{user.displayName || user.email}</Link>
+                                    <button onClick={async () => { await logout(); router.visit('/'); }} className={`${baseClasses} text-sm text-red-600`}>Logout</button>
+                                </>
+                            )}
                         </div>
 
                         {/* Mobile menu (hamburger) */}

@@ -3,12 +3,12 @@ import { Link } from '@inertiajs/react';
 import PublicLayout from '../layouts/PublicLayout';
 
 export default function Profiles() {
-    const [selectedProfile, setSelectedProfile] = useState(null);
+    const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [isLoading, setIsLoading] = useState(false);
 
     // Esta función se conectará al backend cuando esté listo
-    const handleLogin = async (e) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
 

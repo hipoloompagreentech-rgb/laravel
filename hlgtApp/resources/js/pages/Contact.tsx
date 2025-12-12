@@ -130,7 +130,7 @@ export default function Contact() {
                                 </label>
                                 <textarea
                                     id="message"
-                                    rows="6"
+                                    rows={6}
                                     value={data.message}
                                     onChange={(e) => setData('message', e.target.value)}
                                     className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all resize-none"
