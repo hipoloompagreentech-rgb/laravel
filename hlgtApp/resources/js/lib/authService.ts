@@ -6,6 +6,8 @@ import {
   updateProfile,
   updateEmail,
   updatePassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   type User as FirebaseUser,
 } from 'firebase/auth';
 import { ref, set, get } from 'firebase/database';
@@ -50,7 +52,45 @@ class AuthService {
       displayName: user.displayName || '',
       createdAt: new Date().toISOString(),
     };
-  }
+
+    }
+
+    async signInWithGoogle(): Promise<UserProfile | null> {
+      const provider = new GoogleAuthProvider();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+
+        const snap = await get(ref(db, `users/${user.uid}`));
+        if (snap.exists()) {
+          return snap.val() as UserProfile;
+        }
+
+        const profile: UserProfile = {
+          uid: user.uid,
+          email: user.email || '',
+          displayName: user.displayName || '',
+          photoURL: user.photoURL || undefined,
+          createdAt: new Date().toISOString(),
+        };
+
+        await set(ref(db, `users/${user.uid}`), profile);
+        return profile;
+      } catch (err: any) {
+        // If the popup was blocked or the browser cancelled popups, fallback to redirect sign-in
+        const code = err?.code || err?.name;
+        if (code === 'auth/popup-blocked' || code === 'auth/cancelled-popup-request') {
+          // dynamic import to avoid unused import errors in environments that don't support redirect
+          const { signInWithRedirect } = await import('firebase/auth');
+          await signInWithRedirect(auth, provider);
+          // Redirecting away — caller should not expect a UserProfile. Return null as a signal.
+          return null;
+        }
+
+        // Re-throw other errors (e.g., user closed popup)
+        throw err;
+      }
+    }
 
   async logout(): Promise<void> {
     await signOut(auth);
