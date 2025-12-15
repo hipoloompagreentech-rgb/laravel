@@ -3,6 +3,7 @@ import { PropsWithChildren } from 'react';
 import useAuth from '../hooks/useAuth';
 import Snowfall from '../components/Snowfall';
 import SkiingOlaf from '@/components/SkiingOlaf';
+import SantaSleigh from '@/components/SantaSleigh';
 
 export default function PublicLayout({ children }: PropsWithChildren) {
     const { url } = usePage();
@@ -123,6 +124,8 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                     </div>
                 </div>
             </nav>
+
+            <SantaSleigh />
 
             {/* Content */}
             <main className='flex-grow'>
