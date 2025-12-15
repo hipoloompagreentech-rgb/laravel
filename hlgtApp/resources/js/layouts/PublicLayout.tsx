@@ -2,6 +2,7 @@ import { Link, usePage, router } from '@inertiajs/react';
 import { PropsWithChildren } from 'react';
 import useAuth from '../hooks/useAuth';
 import Snowfall from '../components/Snowfall';
+import SkiingOlaf from '@/components/SkiingOlaf';
 
 export default function PublicLayout({ children }: PropsWithChildren) {
     const { url } = usePage();
@@ -130,8 +131,11 @@ export default function PublicLayout({ children }: PropsWithChildren) {
 
             {/* Footer */}
             <footer className="fixed bottom-0 left-0 right-0 bg-slate-800 text-white shadow-lg z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative overflow-hidden">
+                    {/* Olaf esquiando */}
+                    <SkiingOlaf />
+                    
+                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 relative z-10">
                         <p className="text-sm text-stone-300">
                             © 2024 HipooLoompa Green Tech. All rights reserved.
                         </p>
