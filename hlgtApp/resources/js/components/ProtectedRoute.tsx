@@ -12,7 +12,7 @@ export default function ProtectedRoute({ children }: Props) {
   if (loading) return <div className="p-8 text-center">Loading...</div>;
   if (!user) {
     router.visit('/login');
-    return <div className="p-8 text-center">Redirigiendo a login...</div> as any;
+    return <div className="p-8 text-center">Redirecting to login...</div> as any;
   }
   return <>{children}</>;
 }

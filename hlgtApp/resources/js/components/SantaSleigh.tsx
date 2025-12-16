@@ -40,7 +40,7 @@ export default function SantaSleigh() {
             className="absolute pointer-events-none z-40"
             style={{
                 left: `${position}px`,
-                top: '64px', // justo debajo del navbar
+                top: '64px', // just below navbar
             }}
         >
             <div

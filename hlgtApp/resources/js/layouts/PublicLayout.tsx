@@ -136,7 +136,7 @@ export default function PublicLayout({ children }: PropsWithChildren) {
             <footer className="fixed bottom-0 left-0 right-0 bg-slate-800 text-white shadow-lg z-50">
                 <SkiingOlaf />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative overflow-hidden">
-                    {/* Olaf esquiando */}
+                    {/* Olaf skiing */}
                     
                     
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 relative z-10">

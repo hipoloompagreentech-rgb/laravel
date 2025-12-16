@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export default function SkiingOlaf() {
     const SPRITE_SIZE = 100;
 
-    // Empieza fuera de la pantalla por la derecha
+    // start position off-screen to the right
     const [position, setPosition] = useState(window.innerWidth + SPRITE_SIZE);
     const [currentFrame, setCurrentFrame] = useState(0);
 
@@ -15,16 +15,16 @@ export default function SkiingOlaf() {
     ];
 
     useEffect(() => {
-        // Animación de frames
+        // frames animation
         const frameInterval = setInterval(() => {
             setCurrentFrame((prev) => (prev + 1) % 4);
         }, 150);
 
-        // Movimiento en bucle derecha → izquierda
+        // Movement in a loop right → left
         const moveInterval = setInterval(() => {
             setPosition((prev) => {
                 if (prev < -SPRITE_SIZE) {
-                    // Reaparece por la derecha
+                    // Reappears on the right
                     return window.innerWidth + SPRITE_SIZE;
                 }
                 return prev - 4;
@@ -43,7 +43,7 @@ export default function SkiingOlaf() {
             style={{
                 left: `${position}px`,
                 bottom: '5px',
-                transform: 'scaleX(1)', // Mira hacia la izquierda
+                transform: 'scaleX(1)', // Looks to the left
             }}
         >
             <div

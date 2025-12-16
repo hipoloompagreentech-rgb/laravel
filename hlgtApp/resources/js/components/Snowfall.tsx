@@ -65,7 +65,7 @@ export default function Snowfall({
 
     setCanvasSize();
 
-    // Inicializar copos solo si está vacío
+    // Initialize flakes only if empty
     if (flakesRef.current.length === 0) {
       for (let i = 0; i < count; i++) {
         flakesRef.current.push({
@@ -79,7 +79,7 @@ export default function Snowfall({
       }
     }
 
-    // Inicializar pile
+    // Initialize pile
     if (pileRef2.current.length === 0) {
       pileRef2.current = new Array(pileBins).fill(0);
     }
@@ -159,10 +159,10 @@ export default function Snowfall({
       setCanvasSize();
       pileBins = Math.max(40, Math.floor(window.innerWidth / 8));
       binWidth = window.innerWidth / pileBins;
-      // Ajustar el array de pile al nuevo tamaño
+      // Adjust the pile array to the new size
       const oldPile = [...pileRef2.current];
       pileRef2.current = new Array(pileBins).fill(0);
-      // Redistribuir la nieve acumulada proporcionalmente
+      // Redistribute the accumulated snow proportionally
       for (let i = 0; i < oldPile.length; i++) {
         const newIdx = Math.floor((i / oldPile.length) * pileBins);
         if (newIdx < pileBins) {
